@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Para ti</title>
+<link rel="stylesheet" href="estilo.css">
+</head>
+<body>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="gata" viewBox="0 0 200 170">
+    <g stroke="#6b2d4a" stroke-width="4" stroke-linejoin="round" stroke-linecap="round">
+      <path d="M30 86 Q22 26 40 22 Q52 22 88 46 Z" fill="#fff4e6"/>
+      <path d="M170 86 Q178 26 160 22 Q148 22 112 46 Z" fill="#fff4e6"/>
+      <path d="M38 76 Q34 42 44 38 Q52 40 70 52 Z" fill="#ffc2d6" stroke="none"/>
+      <path d="M162 76 Q166 42 156 38 Q148 40 130 52 Z" fill="#ffc2d6" stroke="none"/>
+      <ellipse cx="100" cy="110" rx="78" ry="56" fill="#fff4e6"/>
+      <path d="M92 62 L92 72 M100 59 L100 72 M108 62 L108 72" fill="none" stroke="#f0b27a"/>
+      <path d="M56 104 Q68 90 80 104 M120 104 Q132 90 144 104" fill="none"/>
+      <ellipse cx="50" cy="124" rx="13" ry="8" fill="#ff9fc0" stroke="none" opacity=".75"/>
+      <ellipse cx="150" cy="124" rx="13" ry="8" fill="#ff9fc0" stroke="none" opacity=".75"/>
+      <path d="M95 117 Q100 124 105 117 Z" fill="#ff7fae" stroke-width="3"/>
+      <path d="M88 127 Q94 136 100 128 Q106 136 112 127" fill="none"/>
+      <path d="M12 112 L40 116 M16 128 L40 126 M188 112 L160 116 M184 128 L160 126" fill="none" stroke-width="3"/>
+      <g stroke-width="2.5">
+        <circle cx="48" cy="31" r="7" fill="#ff9fc0"/><circle cx="57" cy="38" r="7" fill="#ff9fc0"/>
+        <circle cx="53" cy="48" r="7" fill="#ff9fc0"/><circle cx="43" cy="48" r="7" fill="#ff9fc0"/>
+        <circle cx="39" cy="38" r="7" fill="#ff9fc0"/><circle cx="48" cy="41" r="5.5" fill="#ffd54f"/>
+      </g>
+    </g>
+  </symbol>
+</svg>
+
+<div id="corazones" aria-hidden="true"></div>
+
+<div class="herramientas">
+  <button id="bMusica" class="pildora" type="button" aria-pressed="false">♪ Activar música</button>
+  <button id="bYT" class="pildora" type="button">▶ Ver la canción</button>
+</div>
+
+<section id="portada" class="vista">
+  <svg id="gataPortada" class="gata grande" viewBox="0 0 200 170" role="img" aria-label="Una gatita dibujada con cariño"><use href="#gata"/></svg>
+  <img id="fotoKitty" class="gata grande" src="kitty.png" alt="" hidden>
+  <h1 id="titulo">Para ti</h1>
+  <p class="sub">Hice esta página con mucho cariño. Elige qué quieres abrir.</p>
+  <div class="modulos">
+    <button class="modulo" type="button" data-ir="mMensajes">
+      <span class="ico">💌</span><strong>Mensajes bonitos</strong><span>Palabras de cariño solo para ti</span>
+    </button>
+    <button class="modulo verde" type="button" data-ir="mFlores">
+      <span class="ico">🌷</span><strong>Mi jardín</strong><span>Mira cómo nacen las flores</span>
+    </button>
+  </div>
+</section>
+
+<section id="mMensajes" class="vista" hidden>
+  <svg class="gata mediana" viewBox="0 0 200 170" aria-hidden="true"><use href="#gata"/></svg>
+  <div class="burbuja"><p id="texto"></p></div>
+  <div class="acciones">
+    <button id="bOtro" class="boton" type="button">Otro mensaje 💕</button>
+    <button class="pildora" type="button" data-ir="portada">← Volver</button>
+  </div>
+</section>
+
+<section id="mFlores" class="vista flores" hidden>
+  <canvas id="jardin" aria-label="Jardín de flores que se dibujan solas"></canvas>
+  <p class="jTitulo">Mi jardín</p>
+  <div class="jBase">
+    <p class="aviso">Toca el jardín para plantar más flores</p>
+    <div class="acciones">
+      <button id="bRehacer" class="boton" type="button">Dibujar de nuevo 🌸</button>
+      <button class="pildora" type="button" data-ir="portada">← Volver</button>
+    </div>
+  </div>
+</section>
+
+<div id="modalYT" class="modal" hidden>
+  <div class="caja" role="dialog" aria-label="Canción">
+    <div class="video"><iframe id="marco" title="Canción" allow="autoplay; encrypted-media" allowfullscreen></iframe></div>
+    <p class="nota">Si el video no carga aquí, <a href="https://www.youtube.com/watch?v=wiaH-mBRXsI" target="_blank" rel="noopener">ábrelo en YouTube</a>.</p>
+    <button id="cerrarYT" class="boton" type="button">Cerrar</button>
+  </div>
+</div>
+
+<script src="musica.js"></script>
+<script src="jardin.js"></script>
+<script src="script.js"></script>
+</body>
+</html>
